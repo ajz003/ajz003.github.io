@@ -8,3 +8,16 @@ img {
 body {
     text-align: center;
 }
+
+h1 {
+    padding: 20px;
+    border: 20px;
+    margin: 20px;
+    background-color: blue;
+    color: orange;
+}
+
+p {
+    color:white;
+    background-color: #ff3b3f;
+}
