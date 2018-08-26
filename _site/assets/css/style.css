@@ -1,0 +1,37 @@
+.main {
+    margin-left: auto;
+    margin-right: auto;
+    width: 960px;
+    background-color: lemonchiffon;
+    padding-bottom: 50px;
+}
+
+.row {
+    margin: 10px;
+}
+
+h1 {
+    margin: 20px;
+}
+
+.row {
+    margin-bottom: 10px;
+}
+
+body {
+    background-image: url("../images/oriental.png");
+    background-color: #cccccc;
+ }
+
+ .figure-caption {
+     font-size: 24px;
+     color: blue;
+ }
+
+ .text-light {
+     font-size: 48px;
+ }
+
+ img {
+     width: 300px;
+ }
