@@ -18,11 +18,6 @@ h1 {
     margin-bottom: 10px;
 }
 
-body {
-    background-image: url("../images/oriental.png");
-    background-color: #cccccc;
- }
-
  .figure-caption {
      font-size: 24px;
      color: blue;
@@ -32,6 +27,17 @@ body {
      font-size: 48px;
  }
 
- img {
-     width: 300px;
- }
+ .navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+
+#linked-in {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#email {
+    border-radius: 5px;
+    margin-left: 10px;
+}
