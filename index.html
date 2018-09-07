@@ -1,37 +1,69 @@
 ---
 layout: default
 ---
+<style>
+
+p {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+h1 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 48px;
+}
+
+p,
+h1 {
+  font-weight: bold;
+}
+
+#profile {
+  margin: 20px 50px;
+}
+
+#tagline {
+
+font-style: italic;
+color: black;
+
+}
+
+#bottomrow {
+  margin-bottom: 50px;
+}
+
+</style>
+
 
 <div class="container-fluid">
     <section class="main">
   
-      <div class="row">
-        <div class="col-md">
-          <h1>About Me</h1>
+      <div class="row align-items-center">
+          <div class="col-3" align="center">
+            <h1>Front End</h1>
+            <br>
+            <p>HTML/CSS</p>
+            <p>Bootstrap</p>
+            <p>JavaScript</p>
+            <p>jQuery</p>
+            <p>JSON/APIs</p>
+          </div>
+        <div class="col-6" align="center">
+            <img src="/assets/images/profile.jpg" class="img-fluid" alt="Profile Picture" id="profile">
+        </div>
+        <div class="col-3" align="center">
+            <h1>Back End</h1>
+            <p>Coming Soon!</p>
         </div>
       </div>
-  
-      <div class="row">
-        <div class="col-md-4">
-          <img src="assets/images/profile.jpg" class="img-fluid" alt="Profile Picture">
-        </div>
-        <div class="col-md-8">
-          <p>I was born. This has made a lot of people very angry and has been widely regarded as a bad move. Jokes aside, I have been living in California for all my life. I was born in Los Angeles in 1993. I quite enjoy the weather here (plus In-n-Out)!
-          </p>
-          <p> In my free time, I like to used to read, write, and play music. I play the piano and dabble in other instruments as well. I have a fascination with learning other languages, and I suppose it's high time I added some more programming languages into the mix!
-          </p>
-        </div>
+
+      <div class="row align-items-center" id="bottomrow">
+        <div class="col-12" align="center">
+        <h1>Anthony Zheng, <span id="tagline">Fully Stacked!</span></h1>
+      </div>
       </div>
   
-      <div class="row">
-        <div class="col-md">
-            <nav class="navbar fixed-bottom navbar-light bg-light">
-                <span class="navbar-text">
-                    Copyright ©
-                </span>
-  
-            </nav>
-        </div>
-      </div>
+
+
     </section>
   </div>

@@ -6,7 +6,8 @@
   <title></title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
 </head>
 <body>
@@ -20,31 +21,31 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-            <a class="nav-link" href="../index.html">Home</a>
+            <a class="nav-link" href="/index.html">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../index.html">About</a>
+          <a class="nav-link" href="/about.html">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../portfolio.html">Portfolio</a>
+          <a class="nav-link" href="/portfolio.html">Portfolio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../blog/index.html">Blog</a>
+          <a class="nav-link" href="/blog/index.html">Blog</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../contact.html">Contact</a>
+          <a class="nav-link" href="/contact.html">Contact</a>
         </li>
    
       <a class="navbar-brand">
-        <span id="address"><img src="/assets/images/email-309491_640.png" width="30" height="30" alt="ajz003@ucla.edu" id="email" value="ajz003@ucla.edu" title="Click to copy e-mail address to clipboard">
+        <span id="address"><img src="/assets/images/email-309491_640.png" width="30" height="30" alt="ajz003@ucla.edu" id="email" value="ajz003@ucla.edu" title="Click to copy my e-mail address to your clipboard">
       </a> </span>
 
       <a class="navbar-brand" href="https://www.linkedin.com/in/anthony-zheng/">
-        <img src="/assets/images/linkedin.jpg" id="linked-in" width="30" height="30" alt="LinkedIn" title="LinkedIn Profile">
+        <img src="/assets/images/linkedin.jpg" id="linked-in" width="30" height="30" alt="LinkedIn" title="My LinkedIn Profile">
       </a>
 
       <a class="navbar-brand" href="https://github.com/ajz003">
-        <img src="/assets/images/github.png" id="github" width="30" height="30" alt="GitHub" title="GitHub Profile">
+        <img src="/assets/images/github.png" id="github" width="30" height="30" alt="GitHub" title="My GitHub Profile">
       </a>
 
       </ul>
@@ -52,37 +53,70 @@
 
   </nav>
 
-  <div class="container-fluid">
+  <style>
+
+p {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+h1 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 48px;
+}
+
+p,
+h1 {
+  font-weight: bold;
+}
+
+#profile {
+  margin: 20px 50px;
+}
+
+#tagline {
+
+font-style: italic;
+color: black;
+
+}
+
+#bottomrow {
+  margin-bottom: 50px;
+}
+
+</style>
+
+
+<div class="container-fluid">
     <section class="main">
   
-      <div class="row">
-        <div class="col-md">
-          <h1>About Me</h1>
+      <div class="row align-items-center">
+          <div class="col-3" align="center">
+            <h1>Front End</h1>
+            <br>
+            <p>HTML/CSS</p>
+            <p>Bootstrap</p>
+            <p>JavaScript</p>
+            <p>jQuery</p>
+            <p>JSON/APIs</p>
+          </div>
+        <div class="col-6" align="center">
+            <img src="/assets/images/profile.jpg" class="img-fluid" alt="Profile Picture" id="profile">
+        </div>
+        <div class="col-3" align="center">
+            <h1>Back End</h1>
+            <p>Coming Soon!</p>
         </div>
       </div>
-  
-      <div class="row">
-        <div class="col-md-4">
-          <img src="assets/images/profile.jpg" class="img-fluid" alt="Profile Picture">
-        </div>
-        <div class="col-md-8">
-          <p>I was born. This has made a lot of people very angry and has been widely regarded as a bad move. Jokes aside, I have been living in California for all my life. I was born in Los Angeles in 1993. I quite enjoy the weather here (plus In-n-Out)!
-          </p>
-          <p> In my free time, I like to used to read, write, and play music. I play the piano and dabble in other instruments as well. I have a fascination with learning other languages, and I suppose it's high time I added some more programming languages into the mix!
-          </p>
-        </div>
+
+      <div class="row align-items-center" id="bottomrow">
+        <div class="col-12" align="center">
+        <h1>Anthony Zheng, <span id="tagline">Fully Stacked!</span></h1>
+      </div>
       </div>
   
-      <div class="row">
-        <div class="col-md">
-            <nav class="navbar fixed-bottom navbar-light bg-light">
-                <span class="navbar-text">
-                    Copyright ©
-                </span>
-  
-            </nav>
-        </div>
-      </div>
+
+
     </section>
   </div>
 

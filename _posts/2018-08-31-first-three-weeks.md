@@ -44,7 +44,7 @@ I finally assembled my first wireframe website just the way I wanted. If only th
 Welcome to the wonderful world of libraries! I had heard of buzzwords like "libraries," but I didn't know what they were for. The Bootstrap library (thanks Twitter) allows users to either download it or link to it using their CDN. All I had to do was paste their CSS link into my HTML file, and then **BAM. No more floats.** All I had to do to utilize their grid system were the `<div>` classes: `container`, `row`, and `col`. Furthermore, I learned that they have a bunch of pre-made components for your website, like jumbotrons, forms, buttons, _navbars_.  
 
 
-![Bootstrap Navbars](http://formoid.com/articles/data/upload/2017/04/color-schemes.jpg "Navbars...")  
+![Bootstrap Navbars](https://formoid.com/articles/data/upload/2017/04/color-schemes.jpg "Navbars...")  
 
 
 Wow. Seeing how easy it was to make a navbar with Bootstrap made me angry.  
