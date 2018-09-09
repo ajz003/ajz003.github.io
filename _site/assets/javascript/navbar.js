@@ -6,6 +6,13 @@ $('#email').on('click', function () {
     $(this).addClass("fadeinout")
     setTimeout(remAnim,510)
 
+
+    setTimeout(function(){
+        $('#email').popover('hide')
+
+        
+    }, 1100);
+
 });
 
 function copyToClipboard(value) {
@@ -21,3 +28,10 @@ function remAnim() {
     console.log()
     $("#email").removeClass("fadeinout");
 }
+
+
+$(function () {
+    $('[data-toggle="popover"]').popover()
+  })
+
+
