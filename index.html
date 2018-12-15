@@ -3,6 +3,7 @@ layout: default
 ---
 <style>
 
+
 p {
   font-family: 'Courier New', Courier, monospace;
   font-size: 24px;
@@ -29,6 +30,17 @@ h1 {
   margin-bottom: 50px;
 }
 
+#front-end, 
+#back-end {
+  background-color: #ff6f61;
+}
+
+#title {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 36px;
+  text-decoration: initial;
+}
+
 
 </style>
 
@@ -37,7 +49,7 @@ h1 {
     <section class="main">
   
       <div class="row">
-          <div class="col-sm-3 order-2 order-md-1" align="center">
+          <div class="col-sm-3 order-2 order-md-1" align="center" id="front-end">
             <h1>Front End</h1>
             <br>
             <p>React</p>
@@ -45,12 +57,11 @@ h1 {
             <p>Bootstrap</p>
             <p>JavaScript</p>
             <p>jQuery</p>
-            <p>JSON/APIs</p>
           </div>
         <div class="col-sm-6 order-1 order-md-2" align="center">
             <img src="/assets/images/profile.jpg" class="img-fluid" alt="Profile Picture" id="profile" align="center">
         </div>
-        <div class="col-sm-3 order-3 order-md-3" align="center">
+        <div class="col-sm-3 order-3 order-md-3" align="center" id="back-end">
             <h1>Back End</h1>
             <br>
             <p>node.js</p>
@@ -62,7 +73,7 @@ h1 {
 
       <div class="row align-items-center" id="bottomrow">
         <div class="col-12" align="center">
-        <h1>Anthony Zheng = Web Developer</h1>
+        <h1 id="title">anthonyZheng.title === "Web Developer"</h1>
       </div>
       </div>
   
