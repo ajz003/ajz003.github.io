@@ -25,7 +25,11 @@ Professor Clark closes the week with an example of FinTech: [Capital One](#Capit
 ------
 ## <a name="Dinosaurs">Dinosaurs</a>
 
-<img src="https://www.everythingdinosaur.com/wp-content/uploads/2017/03/papo_blue_velociraptor2.jpg" width="400" alt="A Dinosaur" />
+
+<img class="img-fluid img-adjust mx-auto d-block" src="https://www.everythingdinosaur.com/wp-content/uploads/2017/03/papo_blue_velociraptor2.jpg" alt="A Dinosaur" />
+
+
+
 
 Guest speaker and professor of finance Veronique Lafon-Vinais is an experienced dinosaur enthusiast, and her argument is that **FinTech is nothing new.**
 
@@ -48,7 +52,8 @@ Summary:
 ------
 ## <a name="Entrepreneurs">Entrepreneurs</a>
 
-<img src="https://c.pxhere.com/images/86/e1/b0f83cd7d519a1f0efb88b76c477-1441539.jpg!d" width="400">
+
+<img class="img-fluid img-adjust mx-auto d-block" src="https://c.pxhere.com/images/86/e1/b0f83cd7d519a1f0efb88b76c477-1441539.jpg!d">
 
 The guest speaker here is an entrepreneur in a FinTech startup company in Hong Kong. He argues that FinTech is the **next new thing**. In the past, financial data was privately held by banks, and you couldn't go up and say "Give me all my financial data" or "Give my data to that other financial institution." Now there are [open banking APIs](https://en.wikipedia.org/wiki/Open_banking).
 
@@ -73,7 +78,7 @@ More of his points:
 ------
 ## <a name="Investors">Investors</a>
 
-<img src="http://www.thebluediamondgallery.com/handwriting/images/investor.jpg" width="400">
+<img class="img-fluid img-adjust mx-auto d-block" src="http://www.thebluediamondgallery.com/handwriting/images/investor.jpg">
 
 The guest speaker is "a millennial, Joshua, who is a Fintech investor." Professor Clark brought him in specifically to get the perspective of a young person and investor. The points that were made:
 
@@ -90,7 +95,7 @@ The guest speaker is "a millennial, Joshua, who is a Fintech investor." Professo
 ------
 ## <a name="Consumers">Consumers</a>
 
-<img src="https://svgsilh.com/svg/312685.svg" width="400">
+<img class="img-fluid img-adjust mx-auto d-block" src="https://svgsilh.com/svg/312685.svg">
 
 Here, Professor Clark is the "consumer." His main argument is **convenience is king.**
 
@@ -110,7 +115,9 @@ Here, Professor Clark is the "consumer." His main argument is **convenience is k
 ------
 ## <a name="Capital-One">A Case Study: Capital One</a>
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Capital_One_logo.svg" width="400">
+
+
+<img class="img-fluid img-adjust mx-auto d-block" src="https://upload.wikimedia.org/wikipedia/commons/9/98/Capital_One_logo.svg">
 
 To wrap up the first week, Professor Clark tells us the tale of Capital One:
 
