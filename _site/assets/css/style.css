@@ -388,3 +388,34 @@ footer a:hover { color: #444; }
   #main-content h1:before, #main-content h2:before, #main-content h3:before, #main-content h4:before, #main-content h5:before, #main-content h6:before { padding-right: 0; margin-left: 0; content: none; } }
 /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+.row { margin: 10px; margin-bottom: 10px; }
+
+.figure-caption { font-size: 24px; color: blue; }
+
+.text-light { font-size: 48px; }
+
+.navbar-dark .navbar-nav .nav-link { color: white; }
+
+#linked-in { background-color: black; border-radius: 5px; }
+
+#email { border-radius: 5px; }
+
+#github { background-color: black; border-radius: 5px; }
+
+#footer { margin-top: 50px; }
+
+.fadeinout { animation-name: fade; animation-duration: 0.5s; }
+
+@keyframes fade { 0%,  100% { filter: invert(0); }
+  25% { filter: invert(1); } }
+.meta { font-size: 36px; }
+
+#bottom-text { color: white; }
+
+body { background-color: #FA7268; }
+
+img { image-orientation: from-image; }
+
+.contact { font-size: 36px; }
+
+#blog-container { color: white; }

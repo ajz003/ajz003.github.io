@@ -1,13 +1,9 @@
 
 .row {
     margin: 10px;
-}
-
-
-
-.row {
     margin-bottom: 10px;
 }
+
 
  .figure-caption {
      font-size: 24px;
@@ -21,8 +17,6 @@
  .navbar-dark .navbar-nav .nav-link {
     color: white;
 }
-
-
 
 #linked-in {
     background-color: black;
@@ -80,4 +74,8 @@
 
 .contact {
     font-size: 36px;
+}
+
+#blog-container {
+    color: white;
 }
