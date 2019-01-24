@@ -190,14 +190,14 @@ This also doesn't matter too much; it's a matter of preference.
 **C#**
 ```csharp
 int age = 25;
-Console.WriteLine("I am " + age + " years old.")
+Console.WriteLine("I am " + age + " years old.");
 ```
 Output: `I am 25 years old.`
 
 **JavaScript**
 ```javascript
 let age = 25;
-console.log("I am " + age + " years old.")
+console.log("I am " + age + " years old.");
 ```
 
 Output: `I am 25 years old.`
@@ -208,7 +208,7 @@ Output: `I am 25 years old.`
 ```csharp
 int age = 25;
 string city = "Oak Park";
-Console.WriteLine("I am {0} years old and live in {1}.", age, city)
+Console.WriteLine("I am {0} years old and live in {1}.", age, city);
 ```
 Output: `I am 25 years old and live in Oak Park.`
 
@@ -218,7 +218,7 @@ Output: `I am 25 years old and live in Oak Park.`
 ```csharp
 int age = 25;
 string city = "Oak Park";
-Console.WriteLine("I am " + age + " years old and live in " + city + ".")
+Console.WriteLine("I am " + age + " years old and live in " + city + ".");
 ```
 Output: `I am 25 years old and live in Oak Park.`
 
@@ -226,7 +226,7 @@ Output: `I am 25 years old and live in Oak Park.`
 ```javascript
 let age = 25;
 let city = "Oak Park";
-console.log("I am " + age + " years old and live in " + city + ".")
+console.log("I am " + age + " years old and live in " + city + ".");
 ```
 Output: `I am 25 years old and live in Oak Park.`
 
@@ -236,7 +236,7 @@ Output: `I am 25 years old and live in Oak Park.`
 ```csharp
 int age = 25;
 string city = "Oak Park";
-Console.WriteLine($"I am {age} years old and live in {city}.")
+Console.WriteLine($"I am {age} years old and live in {city}.");
 ```
 Output: `I am 25 years old and live in Oak Park.`
 
@@ -244,7 +244,7 @@ Output: `I am 25 years old and live in Oak Park.`
 ```javascript
 let age = 25;
 let city = "Oak Park";
-console.log(`I am ${age} years old and live in ${city}.`)
+console.log(`I am ${age} years old and live in ${city}.`);
 ```
 Output: `I am 25 years old and live in Oak Park.`
 
