@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Beginning with C# (Module 1)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+    
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+
+    <a class="navbar-brand" href="https://ajz003.github.io/">Anthony Zheng</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/portfolio.html">Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/blog/index.html">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/assets/pdfs/resume.pdf">Resume</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact.html">Contact</a>
+        </li>
+
+        <a class="navbar-brand">
+          <span id="address"><img src="/assets/images/email-309491_640.png" width="30" height="30" alt="ajz003@ucla.edu"
+              id="email" value="ajz003@ucla.edu" data-toggle="popover" data-content="E-mail address copied to clipboard!" data-placement="bottom">
+        </a> </span>
+
+        <a class="navbar-brand" href="https://www.linkedin.com/in/anthony-zheng/">
+          <img src="/assets/images/linkedin.jpg" id="linked-in" width="30" height="30" alt="LinkedIn" title="My LinkedIn Profile">
+        </a>
+
+        <a class="navbar-brand" href="https://github.com/ajz003">
+          <img src="/assets/images/github.png" id="github" width="30" height="30" alt="GitHub" title="My GitHub Profile">
+        </a>
+      </ul>
+    </div>
+
+  </nav>
+
+  <style>
+
+  .container {
+    margin-bottom: 100px;
+  }
+
+  body {
+    background-color: #fafafa;
+    color: black;
+  }
+
+  .img-adjust {
+    max-width: 60%;
+    height: auto;
+    margin: 50px;
+  }
+
+</style>
+<div class="container">
+
+<div class="row">
+  <div class="col">
+  <h1>Beginning with C# (Module 1)</h1>
+<p>Post Date: 23 Jan 2019</p>
+
+<div class="post">
+  <h1 id="preface">Preface</h1>
+
+<p>This is aimed towards JavaScript developers who want to learn another programming language, or those who want to understand the process of learning something new in general.</p>
+
+<p>I’m taking a course on edX titled <a href="https://courses.edx.org/courses/course-v1:Microsoft+DEV204.1x+1T2019/course/"><strong>Introduction to C#</strong></a>. I figured that it was about time I added another language to my arsenal. I’m going to compare what I learn about C# with JavaScript. I’ll comment on the similarities and the differences, rather than approach it from a brand-new coder’s perspective. Hopefully this review helps everyone out as much as it will help me out!</p>
+
+<hr />
+<h2 id="the-integrated-development-environment-ide">The Integrated Development Environment (IDE)</h2>
+
+<p><img class="img-fluid img-adjust mx-auto d-block" src="https://upload.wikimedia.org/wikipedia/commons/6/61/Visual_Studio_2017_logo_and_wordmark.svg" /></p>
+
+<p>The course suggests that we use <a href="https://visualstudio.microsoft.com/downloads/"><strong>Visual Studio</strong></a> as our IDE for C# (pronounced C Sharp). I personally learned JavaScript using Visual Studio Code, which I believe is Visual Studio’s open-source younger brother. Visual Studio seems more robust and takes up way more space on your hard drive depending on what <strong>workloads</strong> you install. <strong>Workloads</strong> are basically add-ons that get automatically installed based on what kind of development you want to do (.NET, C++, Azure, Node, Office, etc.)</p>
+
+<hr />
+<h2 id="data-types">Data Types</h2>
+
+<p>The first thing we get into are the <strong>most commonly used</strong> C# value types (which are one of two data types.)</p>
+
+<p><em>“Value types are so-called because they contain the actual value of the data they store.”</em></p>
+
+<ol>
+  <li>The ones JavaScript (JS) and C# share in common:
+    <ul>
+      <li>JS <code class="highlighter-rouge">Boolean()</code> and C# <code class="highlighter-rouge">bool</code></li>
+      <li><code class="highlighter-rouge">string</code></li>
+    </ul>
+  </li>
+  <li>
+    <p>Kind of similar:</p>
+
+    <ul>
+      <li>JS <code class="highlighter-rouge">Date()</code> vs. C# <code class="highlighter-rouge">DateTime</code></li>
+      <li>
+        <p>The JS <code class="highlighter-rouge">number</code> vs. C# <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">long</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">double</code>, and <code class="highlighter-rouge">decimal</code></p>
+
+        <p>To summarize the different C# number types briefly:</p>
+        <ul>
+          <li><code class="highlighter-rouge">int</code> is for whole numbers</li>
+          <li><code class="highlighter-rouge">long</code> is for long whole numbers</li>
+          <li><code class="highlighter-rouge">float</code> is for numbers with decimals</li>
+          <li><code class="highlighter-rouge">double</code> is for numbers with lots more decimals</li>
+          <li><code class="highlighter-rouge">decimal</code> is for if you need decimals (duh) and want to do exact/precise math (since float and double can result in some wonky math)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Unique to C#:
+    <ul>
+      <li><code class="highlighter-rouge">char</code>: Single character</li>
+    </ul>
+  </li>
+</ol>
+
+<p>There are more data types than what I’ve listed. <a href="https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/types-and-variables">A full list of C# data types can be found here.</a></p>
+
+<hr />
+<h2 id="statements">Statements</h2>
+
+<p><strong>C#</strong></p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">myVariable</span> <span class="p">=</span> <span class="m">2</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>This is a C# <strong>statement</strong>, which serves the same function as a JS statement. “Statements are formed from <strong>tokens</strong>. These <strong>tokens</strong> can be keywords, identifiers (variables), operators, and the statement terminator which is the semicolon (;). <strong>All statements in C# must be terminated with a semicolon.</strong>”</p>
+
+<p><strong>JavaScript</strong></p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myVariable</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</code></pre></div></div>
+<p>(Semicolon optional)</p>
+
+<p>In JS, you don’t need to end everything with a semicolon, even though it is suggested. This is because JavaScript adds them in behind the scenes. It’s time to be a grown-up and put in those semicolons! With C#, ending statements with semicolons is a <strong>must</strong>, or it’ll throw an error (a nice red squiggly line will appear in Visual Studio).</p>
+
+<p>These parts of the C# statement are tokens:</p>
+<ul>
+  <li><code class="highlighter-rouge">int</code>, Data Type</li>
+  <li><code class="highlighter-rouge">myVariable</code>, Variable</li>
+  <li><code class="highlighter-rouge">=</code>, Assignment operator</li>
+  <li><code class="highlighter-rouge">2</code>, Literal Value</li>
+  <li><code class="highlighter-rouge">;</code>, Statement Terminator</li>
+</ul>
+
+<hr />
+<h2 id="identifiers-variables">Identifiers (Variables)</h2>
+
+<p>“In C#, an identifier is a name you give to the elements in your program.”</p>
+
+<p>Identifier is a fancy word for variable. As examples, let’s look at those code snippets again:</p>
+
+<p><strong>C#</strong></p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">myVariable</span> <span class="p">=</span> <span class="m">2</span><span class="p">;</span>
+</code></pre></div></div>
+<p>When making a variable in C#, you <strong>must</strong> give it a data type (a lot of musts around here)! If you don’t, you’ll get an error. So we have to make <code class="highlighter-rouge">myVariable</code> into an <code class="highlighter-rouge">int</code>.</p>
+
+<p><strong>JavaScript</strong></p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myVariable</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</code></pre></div></div>
+<p>JS just uses <code class="highlighter-rouge">let</code> and <code class="highlighter-rouge">myVariable</code> automatically becomes a number because it sees that <code class="highlighter-rouge">2</code> is a number.</p>
+
+<p>Some similarities for <strong>naming conventions</strong>:</p>
+<ul>
+  <li>Both languages have <strong>case-sensitive identifiers</strong> (myVar, _myVar, and myvar, are considered different identifiers).</li>
+  <li>Both can only contain <strong>letters, digits, and the underscore character</strong> (You cannot start the identifier with a digit. myVar and _myVar are legal but 2Vars is not).</li>
+</ul>
+
+<hr />
+<h2 id="operators">Operators</h2>
+
+<p>“An operator is a token that applies to operations on one or more operands in an expression. An expression can be part of a statement, or the entire statement.”</p>
+
+<p>Both languages share many of the same operators (+, -, *, /, %, etc.) The differences are left as an <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/">exercise for</a> <a href="https://www.w3schools.com/jsref/jsref_operators.asp">the reader.</a></p>
+
+<hr />
+<h2 id="data-type-conversion">Data Type Conversion</h2>
+
+<p>This is how you convert a data type into a different type in <strong>C#</strong>:</p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">myInt</span> <span class="p">=</span> <span class="m">2147483647</span><span class="p">;</span>
+<span class="kt">long</span> <span class="n">myLong</span> <span class="p">=</span> <span class="n">myInt</span><span class="p">;</span>
+</code></pre></div></div>
+<p>This is what is known as an <strong>implicit</strong> data conversion. “C# will use implicit conversion where it can, mostly in the case when a conversion will not result in a loss of data or when the conversion is possible with a compatible data type.”</p>
+
+<p>In this example, converting an <code class="highlighter-rouge">int</code> to a <code class="highlighter-rouge">long</code> is fine because there is no data loss. The reverse, however, could result in data loss since <code class="highlighter-rouge">long</code> holds more data than <code class="highlighter-rouge">int</code>. In this case, we need to do <strong>explicit</strong> data conversion:</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">double</span> <span class="n">myDouble</span> <span class="p">=</span> <span class="m">1234.6</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">myInt</span><span class="p">;</span>
+<span class="c1">// Cast double to int by placing the type modifier ahead of the type to be converted</span>
+<span class="c1">// in parentheses</span>
+<span class="n">myInt</span> <span class="p">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">myDouble</span><span class="p">;</span>
+</code></pre></div></div>
+<p>OR</p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">double</span> <span class="n">myDouble</span> <span class="p">=</span> <span class="m">1234.6</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">myInt</span><span class="p">;</span>
+<span class="c1">// Cast double to int by using the Convert class and the ToInt32() method.</span>
+<span class="c1">// This converts the double value to a 32-bit signed integer</span>
+<span class="n">myInt</span> <span class="p">=</span> <span class="n">Convert</span><span class="p">.</span><span class="nf">ToInt32</span><span class="p">(</span><span class="n">myDouble</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>The first example uses () in front of the old variable to convert it into the type we put into the parentheses, <code class="highlighter-rouge">(int)myDouble</code>.</p>
+
+<p>The second example uses a method provided by the .NET framework, <code class="highlighter-rouge">Convert.ToInt32()</code></p>
+
+<p>C# also gives us two more methods for casting types, <code class="highlighter-rouge">TryParse()</code> and <code class="highlighter-rouge">Parse()</code>:</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// TryParse() example</span>
+<span class="kt">bool</span> <span class="n">result</span> <span class="p">=</span> <span class="n">Int32</span><span class="p">.</span><span class="nf">TryParse</span><span class="p">(</span><span class="k">value</span><span class="p">,</span> <span class="k">out</span> <span class="n">number</span><span class="p">);</span>
+
+<span class="c1">// Parse() example</span>
+<span class="kt">int</span> <span class="n">number</span> <span class="p">=</span> <span class="n">Int32</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="k">value</span><span class="p">);</span>
+</code></pre></div></div>
+<p>“In the TryParse() example, the method returns a <strong>Boolean</strong> result <strong>indicating if the conversion succeeded</strong>. In the Parse() example, if the conversion <strong>does not succeed, an exception will be thrown.</strong>”</p>
+
+<p>Essentially, <code class="highlighter-rouge">TryParse()</code> tries to parse the value into the indicated data type, and it if works or not, it’ll tell you true or false. <code class="highlighter-rouge">Parse()</code> simply throws an error if it fails.</p>
+
+<p><strong>In JS</strong>, <code class="highlighter-rouge">Number()</code> converts to a Number, <code class="highlighter-rouge">String()</code> converts to a string, and <code class="highlighter-rouge">Boolean()</code> converts to a Boolean.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myDouble</span> <span class="o">=</span> <span class="mf">1234.6</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">myInt</span><span class="p">;</span>
+<span class="nx">myInt</span> <span class="o">=</span> <span class="nx">myDouble</span><span class="p">;</span>
+</code></pre></div></div>
+<p><em>Well, JS only has one numeric data type, so this^ code was kind of pointless…</em></p>
+
+<hr />
+<h2 id="conventions">Conventions</h2>
+
+<p>Like JS, C# enjoys the camel case convention, where the letter of each word is capitalized except the first, ex: <code class="highlighter-rouge">camelCase</code> or <code class="highlighter-rouge">thisIsAnExampleVariable</code>. It doesn’t matter too much, because each business has its own naming conventions that you’ll end up using.</p>
+
+<p>Also, like JS, you can declare your variables in C# first before you assign values to them:</p>
+
+<p><strong>C#</strong></p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">myVariable</span> <span class="p">=</span> <span class="m">2</span><span class="p">;</span>
+<span class="c1">// OR</span>
+<span class="kt">int</span> <span class="n">myVariable</span><span class="p">;</span>
+<span class="n">myVariable</span> <span class="p">=</span> <span class="m">2</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><strong>JavaScript</strong></p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myVariable</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="c1">// OR</span>
+<span class="kd">let</span> <span class="nx">myVariable</span><span class="p">;</span>
+<span class="nx">myVariable</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>This also doesn’t matter too much; it’s a matter of preference.</p>
+
+<hr />
+<h2 id="consolewriteline-and-other-goodies">Console.WriteLine() and other goodies</h2>
+
+<p><code class="highlighter-rouge">Console.WriteLine()</code> is C#’s version of JS’s <code class="highlighter-rouge">console.log</code>. It’s similar to JS in the fact that you have to unintuitively space your strings out to make it look nice.</p>
+
+<p><strong>C#</strong></p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">age</span> <span class="p">=</span> <span class="m">25</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"I am "</span> <span class="p">+</span> <span class="n">age</span> <span class="p">+</span> <span class="s">" years old."</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Output: <code class="highlighter-rouge">I am 25 years old.</code></p>
+
+<p><strong>JavaScript</strong></p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"I am "</span> <span class="o">+</span> <span class="nx">age</span> <span class="o">+</span> <span class="s2">" years old."</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Output: <code class="highlighter-rouge">I am 25 years old.</code></p>
+
+<p><em>Additionally, C# has a <strong>placeholder</strong> style for adding in variables using curly brackets:</em></p>
+
+<p><strong>C#</strong></p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">age</span> <span class="p">=</span> <span class="m">25</span><span class="p">;</span>
+<span class="kt">string</span> <span class="n">city</span> <span class="p">=</span> <span class="s">"Oak Park"</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"I am {0} years old and live in {1}."</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">city</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Output: <code class="highlighter-rouge">I am 25 years old and live in Oak Park.</code></p>
+
+<p><em>Both C# and JS utilize <strong>string concatenation</strong>:</em></p>
+
+<p><strong>C#</strong></p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">age</span> <span class="p">=</span> <span class="m">25</span><span class="p">;</span>
+<span class="kt">string</span> <span class="n">city</span> <span class="p">=</span> <span class="s">"Oak Park"</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"I am "</span> <span class="p">+</span> <span class="n">age</span> <span class="p">+</span> <span class="s">" years old and live in "</span> <span class="p">+</span> <span class="n">city</span> <span class="p">+</span> <span class="s">"."</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Output: <code class="highlighter-rouge">I am 25 years old and live in Oak Park.</code></p>
+
+<p><strong>JavaScript</strong></p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">city</span> <span class="o">=</span> <span class="s2">"Oak Park"</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"I am "</span> <span class="o">+</span> <span class="nx">age</span> <span class="o">+</span> <span class="s2">" years old and live in "</span> <span class="o">+</span> <span class="nx">city</span> <span class="o">+</span> <span class="s2">"."</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Output: <code class="highlighter-rouge">I am 25 years old and live in Oak Park.</code></p>
+
+<p><em>And both C# and JS utilize <strong>string interpolation</strong> (called <strong>template literals</strong> in JS):</em></p>
+
+<p><strong>C#</strong></p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">age</span> <span class="p">=</span> <span class="m">25</span><span class="p">;</span>
+<span class="kt">string</span> <span class="n">city</span> <span class="p">=</span> <span class="s">"Oak Park"</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"I am </span><span class="p">{</span><span class="n">age</span><span class="p">}</span><span class="s"> years old and live in </span><span class="p">{</span><span class="n">city</span><span class="p">}</span><span class="s">."</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Output: <code class="highlighter-rouge">I am 25 years old and live in Oak Park.</code></p>
+
+<p><strong>JavaScript</strong></p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">city</span> <span class="o">=</span> <span class="s2">"Oak Park"</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`I am </span><span class="p">${</span><span class="nx">age</span><span class="p">}</span><span class="s2"> years old and live in </span><span class="p">${</span><span class="nx">city</span><span class="p">}</span><span class="s2">.`</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Output: <code class="highlighter-rouge">I am 25 years old and live in Oak Park.</code></p>
+
+<p>C# has the dollar sign before the wrapping quotations <code class="highlighter-rouge">$"{}"</code> and JS has them in the wrapping backticks. Both use curly brackets.</p>
+
+<hr />
+<h1 id="my-thoughts">My thoughts</h1>
+
+<p>While C# is the more complicated programming language, what I was told before was true: once you get familiar with one programming language and understand the programming mindset, learning other programming languages isn’t as hard. I look forward to delving more into C# and comparing it with my native language of JavaScript.</p>
+
+</div>
+
+  </div>
+
+  
+</div>
+
+
+</div>
+
+
+
+  <nav class="navbar fixed-bottom navbar-light" id="footer" style="background-color: #87909e;">
+    <span class="d-flex navbar-text mx-auto text-dark" id="bottom-text">
+      Copyright © 2019 Anthony Zheng
+    </span>
+  </nav>
+
+
+
+  <script src="/assets/javascript/navbar.js"></script>
+
+</body>
+
+</html>
