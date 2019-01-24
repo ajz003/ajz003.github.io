@@ -2,6 +2,7 @@
 ---
 
 @import "{{ site.theme }}";
+
 .row {
     margin: 10px;
     margin-bottom: 10px;
@@ -67,10 +68,6 @@
 
   }
 
-  body {
-    background-color: #FA7268;
-  }
-
   img {
     image-orientation: from-image;
 }
@@ -79,6 +76,3 @@
     font-size: 36px;
 }
 
-#blog-container {
-    color: white;
-}
