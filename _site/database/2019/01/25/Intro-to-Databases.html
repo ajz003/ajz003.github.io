@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Introduction to Databases (Part 1)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+    
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+
+    <a class="navbar-brand" href="https://ajz003.github.io/">Anthony Zheng</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/portfolio.html">Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/blog/index.html">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/assets/pdfs/resume.pdf">Resume</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact.html">Contact</a>
+        </li>
+
+        <a class="navbar-brand">
+          <span id="address"><img src="/assets/images/email-309491_640.png" width="30" height="30" alt="ajz003@ucla.edu"
+              id="email" value="ajz003@ucla.edu" data-toggle="popover" data-content="E-mail address copied to clipboard!" data-placement="bottom">
+        </a> </span>
+
+        <a class="navbar-brand" href="https://www.linkedin.com/in/anthony-zheng/">
+          <img src="/assets/images/linkedin.jpg" id="linked-in" width="30" height="30" alt="LinkedIn" title="My LinkedIn Profile">
+        </a>
+
+        <a class="navbar-brand" href="https://github.com/ajz003">
+          <img src="/assets/images/github.png" id="github" width="30" height="30" alt="GitHub" title="My GitHub Profile">
+        </a>
+      </ul>
+    </div>
+
+  </nav>
+
+  <style>
+
+  .container {
+    margin-bottom: 100px;
+  }
+
+  .img-adjust {
+    max-width: 60%;
+    height: auto;
+    margin: 50px;
+  }
+
+  body {
+    color: black;
+  }
+
+</style>
+<div class="container">
+
+<div class="row">
+    <button type="button" class="btn btn-outline-dark btn-sm" style="margin-top: 20px;" onclick="javascript:history.back()">Go Back</button>
+</div>
+
+<div class="row">
+  <div class="col">
+  <h1>Introduction to Databases (Part 1)</h1>
+<p>Original Post Date: 25 Jan 2019</p>
+
+<div class="post">
+  <h1 id="preface">Preface</h1>
+
+<p>So, I’m taking a course from Stanford’s online Lagunita titled <a href="https://lagunita.stanford.edu/courses/DB/2014/SelfPaced/about">Databases</a>, the self-paced series. the Databases course is comprised of 14 “mini-courses.” It is up to the learner which mini-courses to take, and you are welcome to mix and match. However, they do give suggestions on which set of mini-courses to take, depending on what your goals are:</p>
+
+<ul>
+  <li>
+    <p>Do you just want to learn the bare basics and start doing SQL? Take their <em>Practical Relational Databases and SQL</em> pathway, which suggests two core mini-courses.</p>
+  </li>
+  <li>
+    <p>Do you want to just learn about semistructured data? Take the <em>Semistructured Data</em> pathway, which suggests the <em>XML DATA</em> and <em>JSON DATA</em> mini-courses.</p>
+  </li>
+  <li>
+    <p>Do you want the full database course? Take all of the mini-courses!</p>
+  </li>
+</ul>
+
+<p>Personally, I’m following their <strong>Relational Databases and SQL: Foundations and Practice</strong> pathway, which includes:</p>
+
+<ul>
+  <li><em>Introduction and Relational Databases (the topic of this post)</em></li>
+  <li>Relational Algebra</li>
+  <li>SQL</li>
+  <li>Relational Design Theory</li>
+  <li>Unified Modeling Language (UML)</li>
+  <li>Indexes and Transactions</li>
+  <li>Constraints and Triggers</li>
+  <li>Views and Authorization</li>
+  <li>On-line Analytical Processing</li>
+  <li>Recursion in SQL</li>
+</ul>
+
+<p>I’m going to give <strong>a bunch of bullet points</strong> and notes about what I’ve learned. Here we go!</p>
+
+<hr />
+<h1 id="introduction-and-relational-databases">Introduction and Relational Databases</h1>
+
+<p><img class="img-fluid img-adjust mx-auto d-block" src="https://lagunita.stanford.edu/c4x/DB/2014/asset/databases.png" /></p>
+
+<ul>
+  <li><strong>DBMS stands for Database Management System.</strong> They are:
+    <ul>
+      <li>Massive: On the scale of terabytes of data, daily</li>
+      <li>Persistent: Your data continues to exist after the programs have done executing upon it</li>
+      <li>Safe: Will survive through soft/hardware issues, won’t cease to exist in power outages, resists malicious users</li>
+      <li>Multi-User: Many users can access and change the data <strong>concurrently</strong></li>
+      <li>Convenient: <strong>Physical data independence</strong>, accessed by high level languages in a <strong>declarative</strong> way</li>
+      <li>Efficient: Can handle thousands of updates a second. “Performance, performance, performance.”</li>
+      <li>Reliable: You better have 99.9999% uptime!</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="course-caveats">Course Caveats</h3>
+
+<ul>
+  <li>Database application frameworks and middleware will not be discussed in the course.</li>
+  <li>Not all data-intensive apps use DBMS (they can use text files, spreadsheets, etc.)</li>
+</ul>
+
+<hr />
+<h2 id="key-concepts">Key Concepts</h2>
+
+<ol>
+  <li><strong>Data Model</strong>: Thought of as a set of records, XML, graph, etc.</li>
+  <li><strong>Schema vs. Data</strong>
+    <ul>
+      <li><em>Schema</em> sets up structure of the database: set up in the beginning, doesn’t change much</li>
+      <li><em>Data</em> is the actual data values in the schema: changes rapidly</li>
+    </ul>
+  </li>
+  <li><strong>Data Definition Language (DDL)</strong>: Used to set up the schema</li>
+  <li><strong>Data Manipulation Language (DML)</strong>: After schema is set up, DML is used to query and modify the database</li>
+</ol>
+
+<hr />
+<h2 id="key-people">Key People</h2>
+
+<ol>
+  <li>DBMS Implementer: Builds the system, not the focus of the course</li>
+  <li><strong>Database Designer</strong>: Establishes the schema for the database. Can get <em>very</em> complicated</li>
+  <li><strong>Database Application Developer</strong>: Makes programs that operate on the database</li>
+  <li><strong>Database Administrator</strong>:
+    <ul>
+      <li>Loads the data, gets the database running, and keeps it running</li>
+      <li>Manages tuning parameters</li>
+      <li>For large deployments, is the most important person in the entire process</li>
+    </ul>
+  </li>
+</ol>
+
+<hr />
+
+<h1 id="the-relational-model">The Relational Model</h1>
+
+<ul>
+  <li>Popular</li>
+  <li>Simple</li>
+  <li>Queried with high-level languages</li>
+  <li>Efficient</li>
+</ul>
+
+<hr />
+
+<h3 id="definitions">Definitions</h3>
+
+<ul>
+  <li>A database is defined as a set of <strong>relations</strong> (or <strong>tables</strong>)</li>
+  <li>Each relation has a set of named <strong>attributes</strong> (or <strong>columns</strong>)</li>
+  <li>Each <strong>tuple</strong> (or <strong>row</strong>) has a value for each attribute</li>
+  <li>Each attribute has a <strong>domain</strong> (or <strong>type</strong>)
+    <ul>
+      <li>Integers, strings, etc.</li>
+    </ul>
+  </li>
+  <li><strong>Schema:</strong> Structural description of relations in database</li>
+  <li><strong>Instance</strong>: Actual contents at given point in time</li>
+  <li><strong>NULL</strong>: Special value for something unknown or undefined
+    <ul>
+      <li>Be careful when running queries over NULL values</li>
+    </ul>
+  </li>
+  <li><strong>Key</strong>: Attribute of a relation where every value for that attribute is <em>unique</em>
+    <ul>
+      <li>Ex: Student IDs at a college, Social Security numbers, etc.</li>
+      <li>A set of attributes whose combined values are unique <strong>is also a key</strong></li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+<h1 id="querying-relational-databases">Querying Relational Databases</h1>
+
+<ul>
+  <li><strong>Steps</strong>
+    <ol>
+      <li>Design schema; create using DDL</li>
+      <li>“Bulk load” initial data</li>
+      <li>Execute queries and modifications to the database</li>
+    </ol>
+  </li>
+</ul>
+
+<hr />
+
+<ul>
+  <li><strong>Ad-hoc</strong> queries in <strong>high-level</strong> languages
+    <ul>
+      <li><strong>Ad-hoc</strong>: “Can pose queries that you didn’t think of in advance, so you don’t need to write programs for each query beforehand.”</li>
+      <li><strong>High-level</strong>: “You can write in a fairly compact fashion rather complicated queries and you don’t have to write the algorithms that get the data out of the database.”</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<ul>
+  <li>Some queries are easy to pose, some are harder.</li>
+  <li>Some queries are easy to execute efficiently, some are harder.</li>
+  <li><strong>Not correlated.</strong> (Some easy to pose queries are hard to execute efficiently, and vice versa)</li>
+</ul>
+
+<hr />
+
+<ul>
+  <li><strong>Queries return relations</strong>
+    <ul>
+      <li><strong>Closed</strong>: Getting back the same type of object that you query</li>
+      <li><strong>Compositionality</strong>: When you can run a query over the result of a previous query</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<p>Query in English: <em>IDs of students with GPA &gt; 3.7 applying to Stanford</em>. How do we translate this into the different query languages?</p>
+
+<ul>
+  <li><strong>Query Languages:</strong>
+    <ul>
+      <li><strong>Relational Algebra</strong>: <strong>Formal</strong>
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\project_{Student.ID} (
+  \select_{GPA&gt;3.7 and cName='Stanford'}
+  (Student 
+  \join Apply))
+</code></pre></div>        </div>
+      </li>
+      <li><strong>SQL</strong>: <strong>Actual/Implemented</strong>
+        <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">Student</span><span class="p">.</span><span class="n">ID</span>
+<span class="k">FROM</span> <span class="n">Student</span><span class="p">,</span> <span class="n">Apply</span>
+<span class="k">WHERE</span> <span class="n">Student</span><span class="p">.</span><span class="n">ID</span><span class="o">=</span><span class="n">Apply</span><span class="p">.</span><span class="n">ID</span>
+  <span class="k">AND</span> <span class="n">GPA</span><span class="o">&gt;</span><span class="mi">3</span><span class="p">.</span><span class="mi">7</span> 
+  <span class="k">AND</span> <span class="n">college</span><span class="o">=</span><span class="s1">'Stanford'</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+<h1 id="my-thoughts">My thoughts</h1>
+
+<p>Not much to say, except that I’m excited to dig into databases!</p>
+
+</div>
+
+  </div>
+
+  
+</div>
+
+<div class="row">
+    <button type="button" class="btn btn-outline-dark btn-sm" style="margin-top: 20px;" onclick="javascript:history.back()">Go Back</button>
+</div>
+
+
+</div>
+
+
+
+  <nav class="navbar fixed-bottom navbar-light" id="footer" style="background-color: #87909e;">
+    <span class="d-flex navbar-text mx-auto text-dark" id="bottom-text">
+      Copyright © 2019 Anthony Zheng
+    </span>
+  </nav>
+
+
+
+  <script src="/assets/javascript/navbar.js">
+  </script>
+
+
+</body>
+
+</html>

@@ -9,7 +9,7 @@ tags: [Programming, MOOC]
 
 This is aimed towards JavaScript developers who want to learn another programming language, or those who want to understand the process of learning something new in general.
 
-I'm taking a course on edX titled [**Introduction to C#**](https://courses.edx.org/courses/course-v1:Microsoft+DEV204.1x+1T2019/course/). I figured that it was about time I added another language to my arsenal. I'm going to compare what I learn about C# with JavaScript. I'll comment on the similarities and the differences, rather than approach it from a brand-new coder's perspective. Hopefully this review helps everyone out as much as it will help me out!
+I'm taking a course on edX titled [**Introduction to C#**](https://courses.edx.org/courses/course-v1:Microsoft+DEV204.1x+1T2019/course/). I figured that it was about time I added another language to my arsenal. **I'm going to compare what I learn about C# with JavaScript.** I'll comment on the similarities and the differences, rather than approach it from a brand-new coder's perspective. Hopefully this review helps everyone out as much as it will help me out!
 
 ------
 ## The Integrated Development Environment (IDE)
