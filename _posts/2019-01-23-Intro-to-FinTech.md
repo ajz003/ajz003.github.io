@@ -1,6 +1,6 @@
 ---
 layout: post
-title: What is FinTech?! (Part 1)
+title: What is FinTech?! (Introduction)
 categories: [FinTech]
 tags: [FinTech, MOOC]
 ---

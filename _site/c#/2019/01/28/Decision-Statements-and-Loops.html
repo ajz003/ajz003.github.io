@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Decision Statements and Loops (Intro to C# Part 2)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+    
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+
+    <a class="navbar-brand" href="https://ajz003.github.io/">Anthony Zheng</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/portfolio.html">Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/blog/index.html">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/assets/pdfs/resume.pdf">Resume</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact.html">Contact</a>
+        </li>
+
+        <a class="navbar-brand">
+          <span id="address"><img src="/assets/images/email-309491_640.png" width="30" height="30" alt="ajz003@ucla.edu"
+              id="email" value="ajz003@ucla.edu" data-toggle="popover" data-content="E-mail address copied to clipboard!" data-placement="bottom">
+        </a> </span>
+
+        <a class="navbar-brand" href="https://www.linkedin.com/in/anthony-zheng/">
+          <img src="/assets/images/linkedin.jpg" id="linked-in" width="30" height="30" alt="LinkedIn" title="My LinkedIn Profile">
+        </a>
+
+        <a class="navbar-brand" href="https://github.com/ajz003">
+          <img src="/assets/images/github.png" id="github" width="30" height="30" alt="GitHub" title="My GitHub Profile">
+        </a>
+      </ul>
+    </div>
+
+  </nav>
+
+  <style>
+
+  .container {
+    margin-bottom: 100px;
+  }
+
+  .img-adjust {
+    max-width: 60%;
+    height: auto;
+    margin: 50px;
+  }
+
+  body {
+    color: black;
+  }
+
+</style>
+<div class="container">
+
+<div class="row">
+    <button type="button" class="btn btn-outline-dark btn-sm" style="margin-top: 20px;" onclick="javascript:history.back()">Go Back</button>
+</div>
+
+<div class="row">
+  <div class="col">
+  <h1>Decision Statements and Loops (Intro to C# Part 2)</h1>
+<p>Original Post Date: 28 Jan 2019</p>
+
+<div class="post">
+  <h1 id="preface">Preface</h1>
+
+<p>Just re-stating that <strong>I’m going to compare what I learn about C# with JavaScript.</strong></p>
+
+<p>Today, we’ll be going over these statements:</p>
+
+<ul>
+  <li><strong>Decision Statements</strong>
+    <ol>
+      <li><code class="highlighter-rouge">if</code></li>
+      <li><code class="highlighter-rouge">else if</code></li>
+      <li><code class="highlighter-rouge">else</code></li>
+      <li><code class="highlighter-rouge">switch</code></li>
+    </ol>
+  </li>
+  <li><strong>Loops</strong> (or as they call it, repetition)
+    <ol>
+      <li><code class="highlighter-rouge">for</code></li>
+      <li><code class="highlighter-rouge">foreach</code></li>
+      <li><code class="highlighter-rouge">while</code></li>
+      <li><code class="highlighter-rouge">do</code></li>
+    </ol>
+  </li>
+</ul>
+
+<hr />
+<h2 id="the-if-statement">The if Statement</h2>
+
+<p><strong>C#</strong></p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">string</span> <span class="n">response</span> <span class="p">=</span> <span class="s">"Yes"</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">response</span> <span class="p">==</span> <span class="s">"Yes"</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// statements that will execute if the value of the response variable is</span>
+    <span class="c1">// yes, will be placed here.</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>JavaScript</strong></p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">response</span> <span class="o">=</span> <span class="s2">"Yes"</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">response</span> <span class="o">===</span> <span class="s2">"Yes"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// statements that will execute if the value of the response variable is</span>
+    <span class="c1">// yes, will be placed here.</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+<p>Just a <strong>JavaScript</strong> refresher:</p>
+<ul>
+  <li><code class="highlighter-rouge">===</code> checks if the two statements are the same value <em>and</em> type.</li>
+  <li><code class="highlighter-rouge">==</code> checks only if the two statements are the same value.</li>
+  <li><code class="highlighter-rouge">=</code> is an assignment operator, like <code class="highlighter-rouge">let i = 5;</code></li>
+</ul>
+
+<p><strong><code class="highlighter-rouge">===</code> does not exist in C#.</strong> Otherwise, the syntax for <code class="highlighter-rouge">if</code> statements are very similar:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if () {}
+</code></pre></div></div>
+
+<hr />
+<h3 id="if-else-statements">if else Statements</h3>
+
+<p><strong>C#</strong></p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">string</span> <span class="n">response</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">response</span> <span class="p">==</span> <span class="s">"connection_failed"</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Block of code executes if the value of the response variable is "connection_failed".</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="c1">// Block of code executes if the value of the response variable is not "connection_failed".</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>JavaScript</strong></p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">response</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">response</span> <span class="o">===</span> <span class="s2">"connection_failed"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Block of code executes if the value of the response variable is "connection_failed".</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// Block of code executes if the value of the response variable is not "connection_failed".</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Once again, almost identical (besides the <code class="highlighter-rouge">string response</code> declaration and lack of <code class="highlighter-rouge">===</code> in C#)</p>
+
+<hr />
+<h3 id="else-if-statements">else if Statements</h3>
+
+<p><strong>C#</strong></p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">string</span> <span class="n">response</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">response</span> <span class="p">==</span> <span class="s">"connection_failed"</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Block of code executes if the value of the response variable is "connection_failed".</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">response</span> <span class="p">==</span> <span class="s">"connection_error"</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Block of code executes if the value of the response variable is "connection_error".</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="c1">// Block of code executes if the value of the response variable is neither above responses.</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>JavaScript</strong></p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">response</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">response</span> <span class="o">===</span> <span class="s2">"connection_failed"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Block of code executes if the value of the response variable is "connection_failed".</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">response</span> <span class="o">===</span> <span class="s2">"connection_error"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Block of code executes if the value of the response variable is "connection_error".</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// Block of code executes if the value of the response variable is neither above responses.</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Once again, almost identical! Not too bad.</p>
+
+<hr />
+<h2 id="the-switch-statement">The switch Statement</h2>
+
+<p><strong>C#</strong></p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">string</span> <span class="n">response</span><span class="p">;</span>
+<span class="k">switch</span> <span class="p">(</span><span class="n">response</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="k">case</span> <span class="s">"connection_success"</span><span class="p">:</span>
+      <span class="c1">// Block of code executes if the value of response is "connection_success".</span>
+      <span class="k">break</span><span class="p">;</span>
+   <span class="k">case</span> <span class="s">"connection_failed"</span><span class="p">:</span>
+   <span class="k">case</span> <span class="s">"connection_error"</span><span class="p">:</span>
+      <span class="c1">// Block of code executes if the value of response is "connection_failed"</span>
+      <span class="c1">// or "connection_error;</span>
+      <span class="k">break</span><span class="p">;</span>
+   <span class="k">default</span><span class="p">:</span>
+      <span class="c1">// Block executes if none of the above conditions are met.</span>
+      <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>JavaScript</strong></p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">response</span><span class="p">;</span>
+<span class="k">switch</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">case</span> <span class="s2">"connection_success"</span><span class="p">:</span>
+      <span class="c1">// Block of code executes if the value of response is "connection_success".</span>
+      <span class="k">break</span><span class="p">;</span>
+   <span class="k">case</span> <span class="s2">"connection_failed"</span><span class="p">:</span>
+   <span class="k">case</span> <span class="s2">"connection_error"</span><span class="p">:</span>
+      <span class="c1">// Block of code executes if the value of response is "connection_failed"</span>
+      <span class="c1">// or "connection_error;</span>
+      <span class="k">break</span><span class="p">;</span>
+   <span class="nl">default</span><span class="p">:</span>
+      <span class="c1">// Block executes if none of the above conditions are met.</span>
+      <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Wow, they’re the same! Wonderful!</p>
+
+<hr />
+<h1 id="the-loops-for-loop">The Loops (for Loop)</h1>
+
+<p><strong>C#</strong></p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Basic Format</span>
+<span class="k">for</span> <span class="p">([</span><span class="n">initializers</span><span class="p">];</span> <span class="p">[</span><span class="n">condition</span><span class="p">];</span> <span class="p">[</span><span class="n">iterator</span><span class="p">])</span>
+<span class="p">{</span>
+   <span class="c1">// code to repeat goes here</span>
+<span class="p">}</span>
+
+<span class="c1">//for Loop</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span> <span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">10</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+<span class="p">{</span>
+    <span class="c1">// Code to execute.</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>JavaScript</strong></p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Basic Format</span>
+<span class="k">for</span> <span class="p">([</span><span class="nx">initializers</span><span class="p">];</span> <span class="p">[</span><span class="nx">condition</span><span class="p">];</span> <span class="p">[</span><span class="nx">iterator</span><span class="p">])</span> <span class="p">{</span>
+   <span class="c1">// code to repeat goes here</span>
+<span class="p">}</span>
+
+<span class="c1">//for Loop</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Code to execute.</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>That’s nice, they’re the same again. Of course, you must remember that in C# you have to declare the type of the variable (in this case, <code class="highlighter-rouge">int</code>)</p>
+
+<hr />
+<h3 id="foreach-loops">foreach Loops</h3>
+
+<p><em>Introducing Arrays in C#!</em></p>
+
+<p><strong>C#</strong></p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">string</span><span class="p">[]</span> <span class="n">names</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">[</span><span class="m">10</span><span class="p">];</span>
+
+<span class="c1">// Process each name in the array.</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="kt">string</span> <span class="n">name</span> <span class="k">in</span> <span class="n">names</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">name</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">string[] names = new string[10];</code> <strong>is how you make arrays in C#.</strong></p>
+
+<ul>
+  <li><code class="highlighter-rouge">string[]</code> means the new array holds strings</li>
+  <li><code class="highlighter-rouge">names</code> is giving the array the name of <code class="highlighter-rouge">names</code></li>
+  <li><code class="highlighter-rouge">new string[10]</code> is declaring the new array with a length of 10.</li>
+</ul>
+
+<p><strong>JavaScript</strong></p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">names</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="c1">// Process each name in the array.</span>
+<span class="nx">names</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>Ok, <em>now</em> there are some big differences:</p>
+
+<ul>
+  <li>
+    <p>In <strong>JavaScript</strong>, there is no need to declare the length of the array when initializing it.</p>
+  </li>
+  <li>
+    <p>The foreach methods themselves are also different in both languages:</p>
+    <ul>
+      <li><strong>JavaScript</strong> uses the general format <code class="highlighter-rouge">arrayName.forEach(function(item){});</code></li>
+      <li><strong>C#</strong> uses <code class="highlighter-rouge">foreach (type item in arrayName){}</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>C#’</strong>s <code class="highlighter-rouge">foreach</code> formatting is similar to <code class="highlighter-rouge">if(){}</code>, while <strong>JavaScript</strong> requires that you use <code class="highlighter-rouge">function()</code> to define what code executes <code class="highlighter-rouge">forEach</code> item in the array.</p>
+
+<hr />
+<h3 id="the-while-loop">The while Loop</h3>
+
+<p><strong>C#</strong></p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">string</span> <span class="n">response</span> <span class="p">=</span> <span class="nf">PromptUser</span><span class="p">();</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">response</span> <span class="p">!=</span> <span class="s">"Quit"</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Process the data.</span>
+    <span class="n">response</span> <span class="p">=</span> <span class="nf">PromptUser</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>JavaScript</strong></p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">();</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">response</span> <span class="o">!==</span> <span class="s2">"Quit"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Process the data.</span>
+    <span class="nx">response</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Back to similar territory. Note that the <strong>JavaScript</strong> uses <code class="highlighter-rouge">!==</code> while <strong>C#</strong> has no such operator.</p>
+
+<hr />
+<h3 id="the-do-loop">The do Loop</h3>
+
+<p><strong>C#</strong></p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">do</span>
+<span class="p">{</span>
+    <span class="c1">// Process the data.</span>
+    <span class="n">response</span> <span class="p">=</span> <span class="nf">PromptUser</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">response</span> <span class="p">!=</span> <span class="s">"Quit"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><strong>JavaScript</strong></p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">do</span> <span class="p">{</span>
+    <span class="c1">// Process the data.</span>
+    <span class="nx">response</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">();</span>
+<span class="p">}</span> 
+<span class="k">while</span> <span class="p">(</span><span class="nx">response</span> <span class="o">!==</span> <span class="s2">"Quit"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>They’re similar! Both languages use the <code class="highlighter-rouge">do...while</code> loop to make sure the code in the <code class="highlighter-rouge">do</code> portion is executed at least once.</p>
+
+<h1 id="my-thoughts">My thoughts</h1>
+
+<p><strong>There are a lot of similarities in syntax</strong> between C# and JavaScript, at least for <code class="highlighter-rouge">if</code> statements and loops. So far, most of the differences are just due to how values are typed.</p>
+
+<p>Next time, we’ll get into using methods and exceptions.</p>
+
+</div>
+
+  </div>
+
+  
+</div>
+
+<div class="row">
+    <button type="button" class="btn btn-outline-dark btn-sm" style="margin-top: 20px;" onclick="javascript:history.back()">Go Back</button>
+</div>
+
+
+</div>
+
+
+
+  <nav class="navbar fixed-bottom navbar-light" id="footer" style="background-color: #87909e;">
+    <span class="d-flex navbar-text mx-auto text-dark" id="bottom-text">
+      Copyright © 2019 Anthony Zheng
+    </span>
+  </nav>
+
+
+
+  <script src="/assets/javascript/navbar.js">
+  </script>
+
+
+</body>
+
+</html>

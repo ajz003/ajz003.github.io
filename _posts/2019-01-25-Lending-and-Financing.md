@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Lending and Financing (Part 2)
+title: Lending and Financing (The "Fin" of FinTech Part 1)
 categories: [FinTech]
 tags: [FinTech, MOOC, lending, financing]
 ---

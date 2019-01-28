@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Beginning with C# (Module 1)
+title: Beginning with C# (Intro to C# Part 1)
 categories: [C#]
 tags: [Programming, MOOC]
 ---
