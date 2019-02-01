@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Introduction to SQL and the basic SELECT statement (Part 2)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+    
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+
+    <a class="navbar-brand" href="https://ajz003.github.io/">Anthony Zheng</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/portfolio.html">Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/blog/index.html">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/assets/pdfs/resume.pdf">Resume</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact.html">Contact</a>
+        </li>
+
+        <a class="navbar-brand">
+          <span id="address"><img src="/assets/images/email-309491_640.png" width="30" height="30" alt="ajz003@ucla.edu"
+              id="email" value="ajz003@ucla.edu" data-toggle="popover" data-content="E-mail address copied to clipboard!" data-placement="bottom">
+        </a> </span>
+
+        <a class="navbar-brand" href="https://www.linkedin.com/in/anthony-zheng/">
+          <img src="/assets/images/linkedin.jpg" id="linked-in" width="30" height="30" alt="LinkedIn" title="My LinkedIn Profile">
+        </a>
+
+        <a class="navbar-brand" href="https://github.com/ajz003">
+          <img src="/assets/images/github.png" id="github" width="30" height="30" alt="GitHub" title="My GitHub Profile">
+        </a>
+      </ul>
+    </div>
+
+  </nav>
+
+  <style>
+
+  .container {
+    margin-bottom: 100px;
+  }
+
+  .img-adjust {
+    max-width: 60%;
+    height: auto;
+    margin: 50px;
+  }
+
+  body {
+    color: black;
+  }
+
+</style>
+<div class="container">
+
+<div class="row">
+    <button type="button" class="btn btn-outline-dark btn-sm" style="margin-top: 20px;" onclick="javascript:history.back()">Go Back</button>
+</div>
+
+<div class="row">
+  <div class="col">
+  <h1>Introduction to SQL and the basic SELECT statement (Part 2)</h1>
+<p>Original Post Date: 01 Feb 2019</p>
+
+<div class="post">
+  <h3 id="preface">Preface</h3>
+
+<p>So, I’m taking a course from Stanford’s online Lagunita titled <a href="https://lagunita.stanford.edu/courses/DB/2014/SelfPaced/about">Databases</a>, the self-paced series. the Databases course is comprised of 14 “mini-courses.”</p>
+
+<p>Personally, I’m following their <strong>Relational Databases and SQL: Foundations and Practice</strong> pathway, which includes:</p>
+
+<ul>
+  <li>Introduction and Relational Databases</li>
+  <li>Relational Algebra</li>
+  <li><strong>SQL (the topic of this post)</strong></li>
+  <li>Relational Design Theory</li>
+  <li>Unified Modeling Language (UML)</li>
+  <li>Indexes and Transactions</li>
+  <li>Constraints and Triggers</li>
+  <li>Views and Authorization</li>
+  <li>On-line Analytical Processing</li>
+  <li>Recursion in SQL</li>
+</ul>
+
+<p>I’m going to give <strong>a bunch of bullet points</strong> and notes about what I’ve learned. Here we go!</p>
+
+<hr />
+<h1 id="sql-intro">SQL: Intro</h1>
+
+<ul>
+  <li><em>“Sequel”</em> is the “in” pronunciation</li>
+  <li>Supported by all major commercial database systems</li>
+  <li>Standardized and new features added all the time</li>
+  <li>Interactive via GUI or prompt, or embedded in programs</li>
+  <li><strong>Declarative</strong>, based on relational algebra
+    <ul>
+      <li>Declarative means you write simple queries that say exactly what you want to get out of the database; you don’t have to describe how to get the data out</li>
+      <li>Leads to the “query optimizer,” which figures out the fastest way to execute the query on the database</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="two-parts-to-the-language">Two parts to the language:</h3>
+
+<ul>
+  <li><strong>Data Definition Language (DDL)</strong>
+    <ul>
+      <li><code class="highlighter-rouge">create table...</code> <code class="highlighter-rouge">drop table...</code> etc.</li>
+    </ul>
+  </li>
+  <li><strong>Data Manipulation Language (DML)</strong>
+    <ul>
+      <li><code class="highlighter-rouge">select</code> <code class="highlighter-rouge">insert</code> <code class="highlighter-rouge">delete</code> <code class="highlighter-rouge">update</code> etc.</li>
+    </ul>
+  </li>
+  <li><strong>Other</strong>
+    <ul>
+      <li>indexes, constraints, views, triggers, transactions, authorization, etc.</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+<h1 id="the-basic-select-statement">The Basic SELECT Statement</h1>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">Select</span> <span class="n">A1</span><span class="p">,</span><span class="n">A2</span><span class="p">,...,</span><span class="n">An</span>
+<span class="k">From</span> <span class="n">R1</span><span class="p">,</span><span class="n">R2</span><span class="p">,...,</span><span class="n">Rm</span>
+<span class="k">Where</span> <span class="n">condition</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>Select</strong>: What to return</li>
+  <li><strong>From</strong>: Relations</li>
+  <li><strong>Where</strong>: Combine filter</li>
+</ul>
+
+<p><strong>This course uses three relations for its examples:</strong></p>
+<ol>
+  <li><strong>College</strong>(cName,state,enrollment)</li>
+  <li><strong>Student</strong>(sID,sName,GPA,sizeHS)</li>
+  <li><strong>Apply</strong>(sID,cName,major,decision)</li>
+</ol>
+
+<hr />
+<h2 id="examples">Examples</h2>
+
+<h3 id="basic">Basic</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">select</span> <span class="n">sID</span><span class="p">,</span> <span class="n">sName</span><span class="p">,</span> <span class="n">GPA</span>
+<span class="k">from</span> <span class="n">Student</span>
+<span class="k">where</span> <span class="n">GPA</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">.</span><span class="mi">6</span><span class="p">;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Gives a table of all students with a GPA greater than 3.6</li>
+  <li><strong>Don’t need GPA</strong> in the <code class="highlighter-rouge">select</code> clause even if we’re filtering on the GPA in the <code class="highlighter-rouge">where</code> clause</li>
+</ul>
+
+<hr />
+
+<h3 id="natural-join-select-distinct">Natural join, <strong>select distinct</strong></h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">select</span> <span class="n">sName</span><span class="p">,</span> <span class="n">major</span>
+<span class="k">from</span> <span class="n">Student</span><span class="p">,</span> <span class="n">Apply</span>
+<span class="k">where</span> <span class="n">Student</span><span class="p">.</span><span class="n">sID</span> <span class="o">=</span> <span class="n">Apply</span><span class="p">.</span><span class="n">sID</span><span class="p">;</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>Same as natural join</strong></li>
+  <li>In SQL, we get <strong>duplicates</strong> (mult-set model)…</li>
+  <li>Replacing <code class="highlighter-rouge">select</code> with <code class="highlighter-rouge">select distinct</code> <strong>removes duplicates!</strong></li>
+</ul>
+
+<hr />
+
+<h3 id="filtering-in-where">Filtering in <strong>where</strong></h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">select</span> <span class="n">sName</span><span class="p">,</span> <span class="n">GPA</span><span class="p">,</span> <span class="n">decision</span>
+<span class="k">from</span> <span class="n">Student</span><span class="p">,</span> <span class="n">Apply</span>
+<span class="k">where</span> <span class="n">Student</span><span class="p">.</span><span class="n">sID</span> <span class="o">=</span> <span class="n">Apply</span><span class="p">.</span><span class="n">sID</span>
+    <span class="k">and</span> <span class="n">sizeHS</span> <span class="o">&lt;</span> <span class="mi">1000</span> <span class="k">and</span> <span class="n">major</span> <span class="o">=</span> <span class="s1">'CS'</span> <span class="k">and</span> <span class="n">cName</span> <span class="o">=</span> <span class="s1">'Stanford'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>Filters</strong> results based on sizeHS, major, and college applied to</li>
+</ul>
+
+<hr />
+
+<h3 id="avoid-ambiguous-column-names">Avoid ambiguous column names</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">select</span> <span class="k">distinct</span> <span class="n">College</span><span class="p">.</span><span class="n">cName</span>
+<span class="k">from</span> <span class="n">College</span><span class="p">,</span> <span class="n">Apply</span>
+<span class="k">where</span> <span class="n">College</span><span class="p">.</span><span class="n">cName</span> <span class="o">=</span> <span class="n">Apply</span><span class="p">.</span><span class="n">cName</span>
+    <span class="k">and</span> <span class="n">enrollment</span> <span class="o">&gt;</span> <span class="mi">20000</span> <span class="k">and</span> <span class="n">major</span> <span class="o">=</span> <span class="s1">'CS'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>Must specify</strong> <code class="highlighter-rouge">cName</code> in <code class="highlighter-rouge">select</code> is <code class="highlighter-rouge">College.cName</code></li>
+</ul>
+
+<hr />
+
+<h3 id="order-by"><strong>order by</strong></h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">select</span> <span class="n">Student</span><span class="p">.</span><span class="n">sID</span><span class="p">,</span> <span class="n">sName</span><span class="p">,</span> <span class="n">GPA</span><span class="p">,</span> <span class="n">Apply</span><span class="p">.</span><span class="n">cName</span><span class="p">,</span> <span class="n">enrollment</span>
+<span class="k">from</span> <span class="n">Student</span><span class="p">,</span> <span class="n">College</span><span class="p">,</span> <span class="n">Apply</span>
+<span class="k">where</span> <span class="n">Apply</span><span class="p">.</span><span class="n">sID</span> <span class="o">=</span> <span class="n">Student</span><span class="p">.</span><span class="n">sID</span> <span class="k">and</span> <span class="n">Apply</span><span class="p">.</span><span class="n">cName</span> <span class="o">=</span> <span class="n">College</span><span class="p">.</span><span class="n">cName</span><span class="p">;</span>
+<span class="k">order</span> <span class="k">by</span> <span class="n">GPA</span> <span class="k">desc</span><span class="p">,</span> <span class="n">enrollment</span><span class="p">;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>SQL is an <strong>unordered</strong> model</li>
+  <li>To sort the results, use <code class="highlighter-rouge">order by</code> (<code class="highlighter-rouge">desc</code>). <code class="highlighter-rouge">asc</code> is the default.</li>
+  <li>Can <code class="highlighter-rouge">order by</code> multiple attributes</li>
+</ul>
+
+<hr />
+
+<h3 id="like-and-select-"><strong>like</strong> and <strong>select *</strong></h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">select</span> <span class="n">sID</span><span class="p">,</span> <span class="n">major</span>
+<span class="k">from</span> <span class="n">Apply</span>
+<span class="k">where</span> <span class="n">major</span> <span class="k">like</span> <span class="s1">'%bio%'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="highlighter-rouge">like</code> utilizes %, _ for pattern matching</li>
+  <li><code class="highlighter-rouge">select *</code> (select star) returns all attributes</li>
+</ul>
+
+<hr />
+
+<h3 id="arithmetic-and-as">Arithmetic and <strong>as</strong></h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">select</span> <span class="n">sID</span><span class="p">,</span> <span class="n">sName</span><span class="p">,</span> <span class="n">GPA</span><span class="p">,</span> <span class="n">sizeHS</span><span class="p">,</span> <span class="n">GPA</span><span class="o">*</span><span class="p">(</span><span class="n">sizeHS</span><span class="o">/</span><span class="mi">1000</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">as</span> <span class="n">scaledGPA</span>
+<span class="k">from</span> <span class="n">Student</span><span class="p">;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>You can do arithmetic within SQL clauses</li>
+  <li><code class="highlighter-rouge">as</code> is used to change the labeling of the schema in a query result</li>
+</ul>
+
+</div>
+
+  </div>
+
+  
+</div>
+
+<div class="row">
+    <button type="button" class="btn btn-outline-dark btn-sm" style="margin-top: 20px;" onclick="javascript:history.back()">Go Back</button>
+</div>
+
+
+</div>
+
+
+
+  <nav class="navbar fixed-bottom navbar-light" id="footer" style="background-color: #87909e;">
+    <span class="d-flex navbar-text mx-auto text-dark" id="bottom-text">
+      Copyright © 2019 Anthony Zheng
+    </span>
+  </nav>
+
+
+
+  <script src="/assets/javascript/navbar.js">
+  </script>
+
+
+</body>
+
+</html>
